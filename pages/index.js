@@ -1,12 +1,9 @@
-import dynamic from "next/dynamic";
 import Head from "next/head";
+import { CategoryMeal } from "../components/CategoryMeal";
 import { MainLayout } from "../components/layouts/mainLayout";
-// import { WorldMap } from "../components/WorldMap";
+import Map from "../components/Map";
 
 export default function Home() {
-  const DynamicMap = dynamic(() => import("../components/WorldMap"), {
-    ssr: false,
-  });
   return (
     <MainLayout>
       <Head>
@@ -15,7 +12,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <DynamicMap />
+      <Map />
+      <section className="md:flex  justify-between mx-auto lg:max-w-6xl mt-24 ">
+        <CategoryMeal img="/meal.jpeg" category="Meals" />
+        <CategoryMeal img="/entres.jpeg" category="Entres" />
+        <CategoryMeal img="/deserts.jpeg" category="Deserts" />
+      </section>
     </MainLayout>
   );
 }

@@ -15,7 +15,7 @@ export const NavBar = () => {
         />
       </div>
       <nav className="w-full">
-        <div className="border-y-[1px] border-slate-800 text-center justify-center md:py-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+        <div className="border-y-[1px] border-slate-800 text-center justify-center md:py-4 mx-auto lg:max-w-6xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <div className="md:hidden mx-auto">
