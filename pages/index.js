@@ -1,9 +1,11 @@
 import Head from "next/head";
 import { CategoryMeal } from "../components/CategoryMeal";
-import { MainLayout } from "../components/layouts/mainLayout";
+import LastRecipes from "../components/LastRecipes";
+import { MainLayout } from "../components/layouts/MainLayout";
 import Map from "../components/Map";
+import { getSortedrecipesData } from "../lib/recipes";
 
-export default function Home() {
+export default function Home({ allrecipesData }) {
   return (
     <MainLayout>
       <Head>
@@ -18,6 +20,19 @@ export default function Home() {
         <CategoryMeal img="/entres.jpeg" category="Entres" />
         <CategoryMeal img="/deserts.jpeg" category="Deserts" />
       </section>
+      <h2 className="text-xl text-primary md:text-2xl xl:text-3xl text-center my-4">
+        =Last recipes=
+      </h2>
+      <LastRecipes data={allrecipesData} />
     </MainLayout>
   );
+}
+
+export async function getStaticProps() {
+  const allrecipesData = getSortedrecipesData();
+  return {
+    props: {
+      allrecipesData,
+    },
+  };
 }

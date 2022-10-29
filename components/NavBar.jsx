@@ -1,9 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 export const NavBar = () => {
   const [navbar, setNavbar] = useState(false);
+  const router = useRouter();
 
+  const MENU_LIST = [
+    { text: "Home", href: "/", pathName: "" },
+    { text: "Recipes", href: "/recipes", pathName: "recipes" },
+    { text: "Videos", href: "/contact", pathName: "contact" },
+    { text: "Contact", href: "/contact", pathName: "contact" },
+  ];
+
+  const newLocal =
+    "border-y-[1px] border-primary text-center justify-center mx-auto lg:max-w-6xl md:items-center md:flex md:px-8";
   return (
     <>
       <div className="h-32 w-80 relative mx-auto ">
@@ -15,7 +27,7 @@ export const NavBar = () => {
         />
       </div>
       <nav className="w-full">
-        <div className="border-y-[1px] border-slate-800 text-center justify-center md:py-4 mx-auto lg:max-w-6xl md:items-center md:flex md:px-8">
+        <div className={newLocal}>
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <div className="md:hidden mx-auto">
@@ -59,18 +71,20 @@ export const NavBar = () => {
           <div>
             <div className={`md:block  ${navbar ? "block" : "hidden"}`}>
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-12 md:space-y-0 md:text-lg">
-                <li className="">
-                  <a href="#">Home</a>
-                </li>
-                <li className="">
-                  <a href="#">Recipes</a>
-                </li>
-                <li className="">
-                  <a href="#">Videos</a>
-                </li>
-                <li className="">
-                  <a href="#">Contact</a>
-                </li>
+                {MENU_LIST.map((item) => (
+                  <li
+                    className={`md:w-2/4 p-4 w-20 mx-auto text-primary ${
+                      router.pathname.split("/")[1] === item.pathName
+                        ? "bg-secondary font-bold text-md"
+                        : ""
+                    }`}
+                    key={item.text}
+                  >
+                    <Link href={item.href}>
+                      <a>{item.text}</a>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

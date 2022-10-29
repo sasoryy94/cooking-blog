@@ -5,7 +5,7 @@
 body {
   background-image: url(/bg.jpg);
   background-position: left top;
-  background-size: auto;
+  background-size: contain;
   background-repeat: repeat;
   background-attachment: scroll;
 }
