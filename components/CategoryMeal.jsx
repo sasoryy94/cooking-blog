@@ -21,7 +21,7 @@ export const CategoryMeal = ({
             objectFit="cover"
           />
           <div className="absolute border-[5px] border-[rgba(255,255,255,.3)] w-[95%] m-auto inset-0 h-[95%]"></div>
-          <div className="absolute w-2/4 mx-auto py-2.5 bottom-4 inset-x-0 bg-secondary text-primary text-sm md:text-lg lg:text-xl text-center leading-4">
+          <div className="absolute w-2/5 rounded mx-auto py-2.5 bottom-4 inset-x-0 bg-secondary text-primary text-sm md:text-lg lg:text-xl text-center leading-4">
             {category}
           </div>
         </a>

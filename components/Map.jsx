@@ -32,7 +32,7 @@ const Map = () => {
       {useHasMounted() ? (
         <VectorMap
           map={"world_mill"}
-          backgroundColor="white" //change it to ocean blue: #0077be
+          backgroundColor="#0077BE" //change it to ocean blue: #0077be
           zoomOnScroll={false}
           containerStyle={{
             width: "100%",

@@ -4,8 +4,7 @@ import { getAllPostIds, getPostData } from "../../lib/recipes";
 export default function Recipes({ postData }) {
   return (
     <MainLayout>
-      {" "}
-      <div className="prose prose-slate prose-h1:text-center md:prose-lg lg:prose-xl mx-auto">
+      <div className="prose prose-zinc prose-h1:text-center md:prose-lg lg:prose-xl mx-auto">
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </div>
     </MainLayout>
